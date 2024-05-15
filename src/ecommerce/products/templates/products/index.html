@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block main_content %}
+
+
+<h2 class="text-center text-success">All products</h2>
+
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="col-md-8">
+            <table class="table table-bordered table-striped table-light">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Available Stock</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product_show in products%}
+                    <tr>
+                        <td>
+                            {{ product_show.product_name }}</td>
+                        <td>{{ product_show.product_price }}</td>
+                        <td>{{ product_show.stock }}</td>
+                        <td>
+                            <img src="/{{ product_show.image_url }}" alt="image content" width="200px">
+                        </td>
+                    </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<!-- <ul>
+    {% for product_show in products%}
+    <li>{{ product_show.product_name }}</li>
+    <li>{{ product_show.product_price }}</li>
+    <li>{{ product_show.stock }}</li>
+    <li>
+        <img src="{{ product_show.image_url }}" alt="image content" width="200px">
+    </li>
+    {% endfor %}
+</ul> -->
+{% endblock %}
